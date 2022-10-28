@@ -1,7 +1,8 @@
 import { useState,useEffect} from "react";
 import NavBar from "../components/Navbar";
 export default function Login() {
-    const initialValues = { username: "", email: "", password: "" };
+  const initialValues = { username: "", email: "", password: "" };
+  
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
@@ -58,13 +59,12 @@ export default function Login() {
       >
         <div className="row">
             <div className="col-12 col-md-6">
-            <img src="login-image.jpg" className="login-image w-100" />
+            <img src="login-image.jpg" className="login-image w-100 mt-4" />
             </div>
 
-            <div style={{maxWidth :450}} className="col-12 col-md-6 p-5 mt-3  ">
-            <div className="d-flex flex-column justify-content-center w-100 align-items-md-end">
+            <div className="col-12 col-md-6 p-5 mt-3  ">
+            <div className="d-flex flex-column justify-content-center w-100 ps-3">
             
-                <hr />
             <div className="container1">
                     {Object.keys(formErrors).length === 0 && isSubmit ? (
                         <div className="ui message success">Signed in successfully</div>
@@ -74,42 +74,41 @@ export default function Login() {
 
                 <form onSubmit={handleSubmit}>
                     <h2>Login Form</h2>
-                    <div className="ui divider"></div>
-                    <div className="ui form">
-                    <div className="field">
-                        <label>Username</label>
-                        <input
-                        type="text"
-                        name="username"
-                        placeholder="Username"
-                        value={formValues.username}
-                        onChange={handleChange}
-                        />
-                    </div>
+                    <div >
+                        <div className="d-flex flex-column">
+                            <label>Username </label>
+                            <input
+                            type="text"
+                            name="username"
+                            placeholder="Username"
+                            value={formValues.username}
+                            onChange={handleChange}
+                            />
+                        </div>
                     <p className="text-danger">{formErrors.username}</p>
-                    <div className="field">
-                        <label>Email</label>
-                        <input
-                        type="text"
-                        name="email"
-                        placeholder="Email"
-                        value={formValues.email}
-                        onChange={handleChange}
-                        />
-                    </div>
+                        <div className="d-flex flex-column field">
+                            <label>Email </label>
+                            <input
+                            type="text"
+                            name="email"
+                            placeholder="Email"
+                            value={formValues.email}
+                            onChange={handleChange}
+                            />
+                        </div>
                     <p className="text-danger">{formErrors.email}</p>
-                    <div className="field">
-                        <label>Password</label>
-                        <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        value={formValues.password}
-                        onChange={handleChange}
-                        />
-                    </div>
-                    <p className="text-danger">{formErrors.password}</p>
-                    <button className="btn btn-primary">Submit</button>
+                        <div className="d-flex flex-column field">
+                            <label>Password </label>
+                            <input
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                            value={formValues.password}
+                            onChange={handleChange}
+                            />
+                        </div>
+                        <p className="text-danger">{formErrors.password}</p>
+                        <button className="btn btn-primary">Submit</button>
                     </div>
                 </form>
                 </div>
